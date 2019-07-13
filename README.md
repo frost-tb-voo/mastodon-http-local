@@ -33,7 +33,14 @@ First,
 git clone https://github.com/frost-tb-voo/mastodon-http-local.git
 ```
 
-### SMTP setup
+And then,
+
+- 1. Do SMTP setup
+- 2. Create instances. Choose 2-a or 2-b.
+  - 2-a. A single instance
+  - 2-b. Federatable instances
+
+### 1. SMTP setup
 Create `./template/.env.development` from [.env.development.example](./template/.env.development.example) .
 
 #### gmail
@@ -50,48 +57,57 @@ Look at the following page to generate an app password (SMTP_PASSWORD),
 
 https://support.google.com/mail/answer/185833?hl=ja
 
-### A single instance
+### 2-a. A single instance
 Create a single mastodon instance in your home local intra network.
 Edit [create.sh](./single/create.sh) and execute it.
 
 The values for the following variables are required.
 
-- USER_NAME is a user name of initial admin account
-- USER_EMAIL is a valid e-mail address of initial admin account
-  - SMTP server will send a confirming e-mail to this address, this event is triggered by sidekiq container.
+- USER_NAME, is a user name of initial admin account
+- USER_EMAIL, is a valid e-mail address of initial admin account
+  - SMTP server will send a confirming e-mail to this address, this event would be triggered by sidekiq container.
 
 The values for the following variables are customizable.
 
-- INSTANCE is a directory name for the creating mastodon instance
+- INSTANCE, is a directory name for the creating mastodon instance
   - the prefix of container and network names become this value.
-- MSTDN_SUBNET is a subnet of docker network which the creating instance belongs
+- MSTDN_SUBNET, is a subnet of docker network which the creating instance belongs
   - the specified value must not be in use by other docker containers
   - for example `172.32.0.0/24`
-- NGINX_IP is an IPv4 address in docker network
+- NGINX_IP, is an IPv4 address in docker network
   - must belongs to MSTDN_SUBNET.
   - for example `172.32.0.32`
-- MSTDN_IPV4_WEB is an IPv4 address of web container (defined in docker-compose.yml)
+- MSTDN_IPV4_WEB, is an IPv4 address of web container (defined in docker-compose.yml)
   - must belongs to MSTDN_SUBNET.
   - for example `172.32.0.4`
-- MSTDN_IPV4_STREAMING is an IPv4 address of streaming container (defined in docker-compose.yml)
+- MSTDN_IPV4_STREAMING, is an IPv4 address of streaming container (defined in docker-compose.yml)
   - must belongs to MSTDN_SUBNET.
   - for example `172.32.0.6`
-- MSTDN_IPV4_SIDEKIQ is an IPv4 address of sidekiq container (defined in docker-compose.yml)
+- MSTDN_IPV4_SIDEKIQ, is an IPv4 address of sidekiq container (defined in docker-compose.yml)
   - must belongs to MSTDN_SUBNET.
   - for example `172.32.0.8`
 
 Execute `create.sh`, then the script creates an INSTANCE directory, configures the instance, and creates containers. After all, the script will show the mastodon URL, an initial user account and password. Open it with your favorites browser.
 
-#### Access from other machines
+#### (Optional) Access from other machines
 Set the value into PUBLIC_DOMAIN_OR_IP in `create.sh`.
 The set value must be resolvable from other machines.
 
-### Federatable instances
+- PUBLIC_DOMAIN_OR_IP
+  - must be resolvable from other machines.
+  - for example, `192.168.177.131`
+  - for example, `mydomain.example.local`
+
+### 2-b. Federatable instances
 Create federatable mastodon instances in docker local networks.
 Edit [create.sh](./federated/create.sh) and execute it.
 
 The required values are almost the same with the above.
-Now, the current `create.sh` script creates just 3 instances, and following variables appears 3 times in the script (yet implementing).
+
+- USER_NAME
+- USER_EMAIL
+
+Now, the current `create.sh` script creates just 3 instances, and following variables appears 3 times in the script (yet under construction).
 
 - INSTANCE
 - MSTDN_SUBNET
