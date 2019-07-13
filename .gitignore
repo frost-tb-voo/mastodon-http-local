@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+/live
+/request.rb
+*.log
+**/postgres
+**/public
+**/redis
+**/postfix
+**/accounts-*
+**/.env.development

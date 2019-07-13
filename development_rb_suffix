@@ -1,0 +1,5 @@
+module PrivateAddressCheck \
+ def self.private_address?(*) \
+ false \
+ end \
+end \

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+
+# git clone https://github.com/tootsuite/mastodon.git live && cd live
+# git checkout master
+# cp ./app/lib/request.rb ../
+# git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+# cd ..
+wget https://github.com/tootsuite/mastodon/blob/58276715be8a7e6b518ebd33cd2d4fd82ae81b2c/app/lib/request.rb
+
+docker pull tootsuite/mastodon
+docker build -t novsyama/mastodon-http-local --build-arg VCS_REF=`git rev-parse --short HEAD` .
+docker images novsyama/mastodon-http-local
+
+rm request.rb
