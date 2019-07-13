@@ -44,7 +44,7 @@ And then,
 Create `./template/.env.development` from [.env.development.example](./template/.env.development.example) .
 
 #### gmail
-If you are a gmail user and use `gmail.com` as SMTP server, the values for the following keys are required.
+If you are a gmail user and use `gmail.com` as SMTP server, the values of the following keys are required.
 
 - SMTP_FROM_ADDRESS
   - for example `Mastodon <username@gmail.com>`
@@ -61,13 +61,13 @@ https://support.google.com/mail/answer/185833?hl=ja
 Create a single mastodon instance in your home local intra network.
 Edit [create.sh](./single/create.sh) and execute it.
 
-The values for the following variables are required.
+The values of the following variables are required.
 
 - USER_NAME, is a user name of initial admin account
 - USER_EMAIL, is a valid e-mail address of initial admin account
   - SMTP server will send a confirming e-mail to this address, this event would be triggered by sidekiq container.
 
-The values for the following variables are customizable.
+The values of the following variables are customizable.
 
 - INSTANCE, is a directory name for the creating mastodon instance
   - the prefix of container and network names become this value.
