@@ -41,6 +41,7 @@ cp ../template/.env.development .
 echo "LOCAL_DOMAIN=${NGINX_IP}" >> .env.development
 
 
+sudo docker-compose pull
 # sudo docker-compose run web bundle exec rake --tasks
 # sudo docker-compose run web bundle exec rake mastodon:setup
 echo -n "SECRET_KEY_BASE=" >> .env.development
