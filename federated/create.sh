@@ -3,7 +3,7 @@
 DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 export USER_NAME=admin
-export USER_EMAIL=admin@example.com
+export USER_EMAIL=admin@example.local
 
 
 export INSTANCE=mastodon-http-local-34
