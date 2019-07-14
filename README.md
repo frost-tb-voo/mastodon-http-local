@@ -1,5 +1,5 @@
 # mastodon-http-local
-[![](https://img.shields.io/travis/frost-tb-voo/mastodon-http-local/master.svg?style=flat-square)](https://travis-ci.com/frost-tb-voo/mastodon-http-local/)
+[![](https://img.shields.io/travis/frost-tb-voo/mastodon-http-local/master.svg?style=flat-square)](https://travis-ci.org/frost-tb-voo/mastodon-http-local/)
 [![GitHub stars](https://img.shields.io/github/stars/frost-tb-voo/mastodon-http-local.svg?style=flat-square)](https://github.com/frost-tb-voo/mastodon-http-local/stargazers)
 [![GitHub license](https://img.shields.io/github/license/frost-tb-voo/mastodon-http-local.svg?style=flat-square)](https://github.com/frost-tb-voo/mastodon-http-local/blob/master/LICENSE)
 [![Docker pulls](https://img.shields.io/docker/pulls/novsyama/mastodon-http-local.svg?style=flat-square)](https://hub.docker.com/r/novsyama/mastodon-http-local)
@@ -127,5 +127,8 @@ And, there are additional variables:
 Execute `uninstall.sh` in the instance directory for each instance.
 
 ### Backup and rollback
+TBD.
+
+### Update to latest version
 TBD.
 
