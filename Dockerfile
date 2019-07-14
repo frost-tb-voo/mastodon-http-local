@@ -27,4 +27,5 @@ RUN sed -i -e "s|config.action_dispatch.x_sendfile_header|# config.action_dispat
 # allow remote followed private IPs
 COPY development_rb_suffix /opt/mastodon/
 RUN cat /opt/mastodon/development_rb_suffix >> /opt/mastodon/config/environments/production.rb
-COPY request.rb /opt/mastodon/app/lib/
+RUN wget -O /opt/mastodon/app/lib/request.rb \
+ https://raw.githubusercontent.com/tootsuite/mastodon/58276715be8a7e6b518ebd33cd2d4fd82ae81b2c/app/lib/request.rb
