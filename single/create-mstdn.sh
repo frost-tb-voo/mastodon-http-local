@@ -39,8 +39,8 @@ _EOF_
 `
 cp ../template/.env.development .
 
-if [[ -n ${PUBLIC_DOMAIN_OR_IP} ]];then
-  echo "LOCAL_DOMAIN=${PUBLIC_DOMAIN_OR_IP}" >> .env.development
+if [[ -n ${PRIVATE_DOMAIN_OR_IP} ]];then
+  echo "LOCAL_DOMAIN=${PRIVATE_DOMAIN_OR_IP}" >> .env.development
 else
   echo "LOCAL_DOMAIN=${NGINX_IP}" >> .env.development
 fi
