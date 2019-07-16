@@ -46,24 +46,24 @@ else
 fi
 
 
-sudo docker-compose pull
-# sudo docker-compose run web bundle exec rake --tasks
-# sudo docker-compose run web bundle exec rake mastodon:setup
+sudo -E docker-compose pull
+# sudo -E docker-compose run web bundle exec rake --tasks
+# sudo -E docker-compose run web bundle exec rake mastodon:setup
 echo -n "SECRET_KEY_BASE=" >> .env.development
-sudo docker-compose run web bundle exec rake secret >> .env.development
-sudo docker-compose stop
+sudo -E docker-compose run web bundle exec rake secret >> .env.development
+sudo -E docker-compose stop
 echo -n "OTP_SECRET=" >> .env.development
-sudo docker-compose run web bundle exec rake secret >> .env.development
-sudo docker-compose stop
+sudo -E docker-compose run web bundle exec rake secret >> .env.development
+sudo -E docker-compose stop
 cat .env.development
 
 
-sudo docker-compose run web rails db:migrate
-sudo docker-compose stop
-sudo docker-compose run web rails assets:precompile
-sudo docker-compose stop
+sudo -E docker-compose run web rails db:migrate
+sudo -E docker-compose stop
+sudo -E docker-compose run web rails assets:precompile
+sudo -E docker-compose stop
 echo ${USER_EMAIL} > ./accounts-${USER_NAME}.md
-sudo docker-compose run web bin/tootctl accounts create ${USER_NAME} --email ${USER_EMAIL} --confirmed --role admin >> ./accounts-${USER_NAME}.md
-sudo docker-compose stop
-sudo docker-compose up -d
-sudo docker-compose exec web chown -hR mastodon public
+sudo -E docker-compose run web bin/tootctl accounts create ${USER_NAME} --email ${USER_EMAIL} --confirmed --role admin >> ./accounts-${USER_NAME}.md
+sudo -E docker-compose stop
+sudo -E docker-compose up -d
+sudo -E docker-compose exec web chown -hR mastodon public
