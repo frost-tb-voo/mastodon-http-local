@@ -66,3 +66,4 @@ echo ${USER_EMAIL} > ./accounts-${USER_NAME}.md
 sudo docker-compose run web bin/tootctl accounts create ${USER_NAME} --email ${USER_EMAIL} --confirmed --role admin >> ./accounts-${USER_NAME}.md
 sudo docker-compose stop
 sudo docker-compose up -d
+sudo docker-compose exec web chown -hR mastodon public
