@@ -22,6 +22,7 @@ cd ${INSTANCE}
 sudo -E chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
+echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 
 
@@ -41,6 +42,7 @@ cd ${INSTANCE}
 sudo -E chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
+echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 
 
@@ -60,6 +62,7 @@ cd ${INSTANCE}
 sudo -E chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
+echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 
 
