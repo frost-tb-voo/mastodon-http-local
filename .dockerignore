@@ -1,0 +1,10 @@
+/single
+/federated
+/script
+/template
+/.gitignore
+/.travis.yml
+/build
+/LICENSE
+/push
+/README.md
