@@ -4,7 +4,7 @@ DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 export USER_NAME=admin
 export USER_EMAIL=admin@example.local
-export PUBLIC_DOMAIN_OR_IP=
+export PRIVATE_DOMAIN_OR_IP=
 
 export INSTANCE=mastodon-http-local-32
 export NGINX_IP=172.32.0.10

@@ -90,10 +90,10 @@ The values of the following variables are customizable.
 Execute `create.sh`, then the script creates an INSTANCE directory, configures the instance, and creates containers. After all, the script will show the mastodon URL, an initial user account and password. Open it with your favorites browser.
 
 #### (Optional) Access from other machines
-Set the value into PUBLIC_DOMAIN_OR_IP in `create.sh`.
+Set the value into PRIVATE_DOMAIN_OR_IP in `create.sh`.
 The set value must be resolvable from other machines.
 
-- PUBLIC_DOMAIN_OR_IP
+- PRIVATE_DOMAIN_OR_IP
   - must be resolvable from other machines.
   - for example, `192.168.177.131`
   - for example, `mydomain.example.local`
