@@ -31,7 +31,11 @@ bash ${DIR}/create-nginx.sh
 
 echo
 echo
-echo "open ${NGINX_IP}:80 with :"
+if [[ -n ${PRIVATE_DOMAIN_OR_IP} ]]; then
+  echo "open ${PRIVATE_DOMAIN_OR_IP}:80 with :"
+else
+  echo "open ${NGINX_IP}:80 with :"
+fi
 cat ./accounts-${USER_NAME}.md
 # sudo -E chown -hR ${USER} .
 
