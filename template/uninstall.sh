@@ -9,6 +9,6 @@ sudo docker-compose rm
 cd .. && sudo rm -rf ${DIR}
 sudo docker stop nginx
 sudo docker rm nginx
-sudo docker stop postfix
-sudo docker rm postfix
+# sudo docker stop postfix
+# sudo docker rm postfix
 
