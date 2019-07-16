@@ -13,7 +13,7 @@ cp ../template/nginx_conf_prefix ./nginx.conf
 cat ../template/nginx_conf_suffix >> ./nginx.conf
 sed -i -e 's|${INSTANCE}|'${INSTANCE}'|g' ./nginx.conf
 sed -i -e 's|${NGINX_IP}|'${NGINX_IP}'|g' ./nginx.conf
-if [[ -n ${PUBLIC_DOMAIN_OR_IP} ]];then
+if [[ -n ${PRIVATE_DOMAIN_OR_IP} ]];then
   cat ../template/nginx_conf_suffix >> ./nginx.conf
   sed -i -e 's|${INSTANCE}|'${INSTANCE}'|g' ./nginx.conf
   sed -i -e 's|${NGINX_IP}|'${PRIVATE_DOMAIN_OR_IP}'|g' ./nginx.conf
