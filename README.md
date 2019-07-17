@@ -21,9 +21,11 @@ For example, use in the following situations:
 - Linux OS
   - recommended : ubuntu 18.04.2 LTS
 - Docker CE
+  - https://docs.docker.com/
   - recommended : version 18.09.6
 - docker-compose
   - recommended : version 1.24.0
+  - https://docs.docker.com/compose/install/
 - An account of SMTP server
 
 ## How to install
@@ -70,6 +72,7 @@ The values of the following variables are required.
 The values of the following variables are customizable.
 
 - INSTANCE, is a directory name for the creating mastodon instance
+  - installation path. The persistent data would be written here.
   - the prefix of container and network names become this value.
 - MSTDN_SUBNET, is a subnet of docker network which the creating instance belongs
   - the specified value must not be in use by other docker containers
@@ -123,12 +126,21 @@ And, there are additional variables:
 - NGINX_IP1,2,3
   - order insensitive. listup all the NGINX_IP values to construct network for nginx
 
+## Operations
+
 ### Uninstall
 Execute `uninstall.sh` in the instance directory for each instance.
 
 ### Backup and rollback
-TBD.
+See the mastodon official document.
+
+https://docs.joinmastodon.org/administration/post-installation/
 
 ### Update to latest version
 TBD.
+
+## For developers
+To understand the operations for mastodon in the script file [create-mstdn.sh](./single/create-mstdn.sh), see the mastodon official document.
+
+https://docs.joinmastodon.org/administration/installation/
 
