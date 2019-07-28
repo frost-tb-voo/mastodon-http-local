@@ -74,7 +74,7 @@ The values of the following variables are customizable.
 - INSTANCE, is a directory name for the creating mastodon instance
   - installation path. The persistent data would be written here.
   - the prefix of container and network names become this value.
-- MSTDN_SUBNET, is a subnet of docker network which the creating instance belongs
+- MSTDN_SUBNET, is a subnet of docker network where the creating instance belongs to
   - the specified value must not be in use by other docker containers
   - for example `172.32.0.0/24`
 - NGINX_IP, is an IPv4 address in docker network
@@ -94,7 +94,6 @@ Execute `create.sh`, then the script creates an INSTANCE directory, configures t
 
 #### (Optional) Access from other machines
 Set the value into PRIVATE_DOMAIN_OR_IP in `create.sh`.
-The set value must be resolvable from other machines.
 
 - PRIVATE_DOMAIN_OR_IP
   - must be resolvable from other machines.
@@ -105,12 +104,12 @@ The set value must be resolvable from other machines.
 Create federatable mastodon instances in docker local networks.
 Edit [create.sh](./federated/create.sh) and execute it.
 
-The required values are almost the same with the above.
+The required values are almost the same with 2-a.
 
 - USER_NAME
 - USER_EMAIL
 
-Now, the current `create.sh` script creates just 3 instances, and following variables appears 3 times in the script (yet under construction).
+Now, the current implementation of `create.sh` script creates just 3 instances, and following variables appear 3 times in the script (yet under construction).
 
 - INSTANCE
 - MSTDN_SUBNET
