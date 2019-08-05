@@ -23,6 +23,7 @@ sudo docker pull nginx
 sudo docker stop nginx
 sudo docker rm nginx
 sudo docker create --name=nginx \
+ --restart=always \
  -p 80:80 \
  -v ${DIR}/../${INSTANCE}/nginx.conf:/etc/nginx/conf.d/mastodon.nginx.conf \
  nginx
