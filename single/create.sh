@@ -15,6 +15,9 @@ export MSTDN_IPV4_SIDEKIQ=172.32.0.8
 # export SMTP_HOSTNAME=postfix
 # export POSTFIX_IP=172.32.0.12
 
+# cent os support, delete hyphens
+export INSTANCE=${INSTANCE//-/}
+
 cd ${DIR}/..
 if [[ -e ${INSTANCE} ]]; then
   exit
