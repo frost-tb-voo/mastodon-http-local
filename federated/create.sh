@@ -13,6 +13,8 @@ export MSTDN_IPV4_WEB=172.34.0.4
 export MSTDN_IPV4_STREAMING=172.34.0.6
 export MSTDN_IPV4_SIDEKIQ=172.34.0.8
 
+# cent os support, delete hyphens
+export INSTANCE=${INSTANCE//-/}
 cd ${DIR}/..
 if [[ -e ${INSTANCE} ]]; then
   exit
@@ -33,6 +35,8 @@ export MSTDN_IPV4_WEB=172.36.0.4
 export MSTDN_IPV4_STREAMING=172.36.0.6
 export MSTDN_IPV4_SIDEKIQ=172.36.0.8
 
+# cent os support, delete hyphens
+export INSTANCE=${INSTANCE//-/}
 cd ${DIR}/..
 if [[ -e ${INSTANCE} ]]; then
   exit
@@ -53,6 +57,8 @@ export MSTDN_IPV4_WEB=172.38.0.4
 export MSTDN_IPV4_STREAMING=172.38.0.6
 export MSTDN_IPV4_SIDEKIQ=172.38.0.8
 
+# cent os support, delete hyphens
+export INSTANCE=${INSTANCE//-/}
 cd ${DIR}/..
 if [[ -e ${INSTANCE} ]]; then
   exit
