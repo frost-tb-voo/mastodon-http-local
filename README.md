@@ -13,7 +13,7 @@ This is not production ready.
 **Use only for testing or development.**
 For example, use in the following situations:
 
-- Create a single mastodon instance in your home local intra network.
+- Create a mastodon instance in your home local intra network.
 - Create federatable mastodon instances in docker local networks.
 
 ## Requirement
