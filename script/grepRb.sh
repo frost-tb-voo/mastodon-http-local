@@ -25,8 +25,8 @@ echo "find ${APP} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >>
 echo "find ${CONFIG} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >> temp/find.sh
 echo "find ${LIB} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >> temp/find.sh
 
-sudo docker pull tootsuite/mastodon
-sudo docker run --rm -it \
+docker pull tootsuite/mastodon
+docker run --rm -it \
  -v `pwd`/temp:/temp:rw \
  tootsuite/mastodon \
  bash /temp/find.sh

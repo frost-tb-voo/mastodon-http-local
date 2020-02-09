@@ -47,17 +47,17 @@ fi
 
 
 # Comment out pull command if build in local.
-sudo -E docker-compose pull
+docker-compose pull
 echo -n "SECRET_KEY_BASE=" >> .env.development
-sudo -E docker-compose run --rm web bundle exec rake secret >> .env.development
+docker-compose run --rm web bundle exec rake secret >> .env.development
 echo -n "OTP_SECRET=" >> .env.development
-sudo -E docker-compose run --rm web bundle exec rake secret >> .env.development
+docker-compose run --rm web bundle exec rake secret >> .env.development
 cat .env.development
 
 
-sudo -E docker-compose run --rm web rails db:migrate
-sudo -E docker-compose run --rm web rails assets:precompile
+docker-compose run --rm web rails db:migrate
+docker-compose run --rm web rails assets:precompile
 echo ${USER_EMAIL} > ./accounts-${USER_NAME}.md
-sudo -E docker-compose run --rm web bin/tootctl accounts create ${USER_NAME} --email ${USER_EMAIL} --confirmed --role admin >> ./accounts-${USER_NAME}.md
-sudo -E docker-compose up -d
-sudo -E docker-compose exec -u root web chown -hR mastodon public
+docker-compose run --rm web bin/tootctl accounts create ${USER_NAME} --email ${USER_EMAIL} --confirmed --role admin >> ./accounts-${USER_NAME}.md
+docker-compose up -d
+docker-compose exec -u root web chown -hR mastodon public

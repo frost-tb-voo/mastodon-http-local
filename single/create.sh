@@ -24,10 +24,10 @@ if [[ -e ${INSTANCE} ]]; then
 fi
 mkdir -p ${INSTANCE}
 cd ${INSTANCE}
-sudo -E chown -hR ${USER} .
+chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
-echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
+echo "docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 bash ${DIR}/create-nginx.sh
 # bash ${DIR}/create-postfix.sh
@@ -40,5 +40,5 @@ else
   echo "open ${NGINX_IP}:80 with :"
 fi
 cat ./accounts-${USER_NAME}.md
-# sudo -E chown -hR ${USER} .
+# chown -hR ${USER} .
 

@@ -34,17 +34,17 @@ echo ${SMTP_HOSTNAME} >> ${SMTP_HOSTNAME}/main.cf
 mkdir -p "./${SMTP_HOSTNAME}/log"
 mkdir -p "./${SMTP_HOSTNAME}/data"
 
-sudo docker pull tozd/postfix
-sudo docker stop "${SMTP_HOSTNAME}" || true
-sudo docker rm "${SMTP_HOSTNAME}" || true
-sudo docker run --name "${SMTP_HOSTNAME}" -d \
+docker pull tozd/postfix
+docker stop "${SMTP_HOSTNAME}" || true
+docker rm "${SMTP_HOSTNAME}" || true
+docker run --name "${SMTP_HOSTNAME}" -d \
  --hostname "${SMTP_HOSTNAME}" \
  --env MAILNAME --env MY_NETWORKS --env ROOT_ALIAS --env MY_DESTINATION \
  --volume "${DIR}/../${INSTANCE}/${SMTP_HOSTNAME}/main.cf:/etc/postfix/main.cf" \
  --volume "${DIR}/../${INSTANCE}/${SMTP_HOSTNAME}/log:/var/log/postfix" \
  --volume "${DIR}/../${INSTANCE}/${SMTP_HOSTNAME}/data:/var/spool/postfix" \
  tozd/postfix
-sudo docker network connect ${INSTANCE}_external_network --ip=${POSTFIX_IP} postfix
+docker network connect ${INSTANCE}_external_network --ip=${POSTFIX_IP} postfix
 
 sleep 3
 MAIL_TEXT=`cat << _EOF_ > mail.txt
