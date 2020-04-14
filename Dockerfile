@@ -16,7 +16,7 @@ RUN sed -i -e "s|http#{Rails.configuration.x.use_https ? 's' : ''}|http|g" /opt/
 
 RUN sed -i -e "s|https://#{domain}|http://#{domain}|g" /opt/mastodon/lib/mastodon/domains_cli.rb
 
-RUN sed -i -e "s|'https'|'http'|g" /opt/mastodon/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.0/lib/goldfinger/client.rb
+RUN sed -i -e "s|'https'|'http'|g" /opt/mastodon/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.1/lib/goldfinger/client.rb
 
 RUN sed -i -e "s|Rails.env.production?|false|g" /opt/mastodon/app/controllers/application_controller.rb
 
