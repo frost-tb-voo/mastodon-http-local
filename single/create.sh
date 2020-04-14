@@ -2,8 +2,11 @@
 
 DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
-export USER_NAME=admin
-export USER_EMAIL=admin@example.local
+# There is a list of reserved user names you cannot use
+# https://github.com/tootsuite/mastodon/commit/f7a30e2fae3199a82e2ad23bb9d761d1fe1be8de#diff-646ad6b10917e4385cbcc8c8524e24a2
+export USER_NAME=developer
+# Email must be "real" i.e. not email@mastodon.local
+export USER_EMAIL=developer@example.com
 export PRIVATE_DOMAIN_OR_IP=
 
 export INSTANCE=mastodon-http-local-32
@@ -20,11 +23,14 @@ export INSTANCE=${INSTANCE//-/}
 
 cd ${DIR}/..
 if [[ -e ${INSTANCE} ]]; then
-  exit
+  echo "Instance ${INSTANCE} already exists; remove ${INSTANCE}/ folder to re-create it."
+  exit 1
 fi
 mkdir -p ${INSTANCE}
 cd ${INSTANCE}
 sudo -E chown -hR ${USER} .
+
+cp ../template/gitignore/.gitignore .
 
 cp ../template/uninstall.sh .
 echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh

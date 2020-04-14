@@ -45,6 +45,13 @@ And then,
 ### 1. SMTP setup
 Create `./template/.env.development` from [.env.development.example](./template/.env.development.example) .
 
+#### [mailtrap.io](https://mailtrap.io)
+Safe Email Testing for Staging & Development
+
+Free plan offer you 500 emails per month. 
+
+After registration, open "Demo inbox" and copy generated username to `SMTP_LOGIN` and password to `SMTP_PASSWORD`. `SMTP_SERVER` is `smtp.mailtrap.io`.
+
 #### gmail
 If you are a gmail user and use `gmail.com` as SMTP server, the values of the following keys are required.
 
