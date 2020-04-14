@@ -6,7 +6,7 @@
 [![Docker image-size](https://img.shields.io/microbadger/image-size/novsyama/mastodon-http-local.svg?style=flat-square)](https://microbadger.com/images/novsyama/mastodon-http-local)
 ![Docker layers](https://img.shields.io/microbadger/layers/novsyama/mastodon-http-local.svg?style=flat-square)
 
-Unofficial mastodon docker image for `http://` (NOT `https://`) scheme federation.
+Unofficial [mastodon](https://github.com/tootsuite/mastodon) docker image for `http://` (NOT `https://`) scheme federation.
 This image enables remote follow through `http://` scheme.
 
 This is not production ready.
