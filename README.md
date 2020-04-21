@@ -3,7 +3,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/frost-tb-voo/mastodon-http-local.svg?style=flat-square)](https://github.com/frost-tb-voo/mastodon-http-local/stargazers)
 [![GitHub license](https://img.shields.io/github/license/frost-tb-voo/mastodon-http-local.svg?style=flat-square)](https://github.com/frost-tb-voo/mastodon-http-local/blob/master/LICENSE)
 [![Docker pulls](https://img.shields.io/docker/pulls/novsyama/mastodon-http-local.svg?style=flat-square)](https://hub.docker.com/r/novsyama/mastodon-http-local)
-[![Docker image-size](https://img.shields.io/microbadger/image-size/novsyama/mastodon-http-local.svg?style=flat-square)](https://microbadger.com/images/novsyama/mastodon-http-local)
+[![Docker image-size](https://img.shields.io/docker/image-size/novsyama/mastodon-http-local.svg?style=flat-square)](https://hub.docker.com/r/novsyama/mastodon-http-local)
 ![Docker layers](https://img.shields.io/microbadger/layers/novsyama/mastodon-http-local.svg?style=flat-square)
 
 Unofficial [mastodon](https://github.com/tootsuite/mastodon) docker image for `http://` (NOT `https://`) scheme federation.
