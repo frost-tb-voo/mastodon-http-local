@@ -23,7 +23,7 @@ For example, use in the following situations:
 - Docker CE
   - https://docs.docker.com/
   - Recommended : version 18.09.6
-  - And, you need to exec the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
+  - And, you need to exec `Manage Docker as a non-root user` section in [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
 - docker-compose
   - recommended : version 1.24.0
   - https://docs.docker.com/compose/install/
