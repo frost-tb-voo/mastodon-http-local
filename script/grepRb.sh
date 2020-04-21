@@ -6,7 +6,7 @@ M_HOME=/opt/mastodon
 APP=${M_HOME}/app
 CONFIG=${M_HOME}/config
 LIB=${M_HOME}/lib
-GFINGER=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.0
+GFINGER=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.1
 OSTATUS=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/ostatus2-2.0.3
 
 mkdir -p temp
