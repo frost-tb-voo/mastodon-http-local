@@ -1,4 +1,6 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker tag novsyama/mastodon-http-local novsyama/mstodon-http-local:${TAG}
+docker push novsyama/mastodon-http-local:${TAG}
 docker push novsyama/mastodon-http-local
 
