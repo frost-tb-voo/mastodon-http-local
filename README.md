@@ -22,7 +22,8 @@ For example, use in the following situations:
   - recommended : ubuntu 18.04.2 LTS
 - Docker CE
   - https://docs.docker.com/
-  - recommended : version 18.09.6
+  - Recommended : version 18.09.6
+  - And, you need to exec the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
 - docker-compose
   - recommended : version 1.24.0
   - https://docs.docker.com/compose/install/
