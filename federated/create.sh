@@ -21,11 +21,11 @@ if [[ -e ${INSTANCE} ]]; then
 fi
 mkdir -p ${INSTANCE}
 cd ${INSTANCE}
-sudo -E chown -hR ${USER} .
+chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
-echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
-bash ${DIR}/create-mstdn.sh
+echo "docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
+${DIR}/create-mstdn.sh
 
 
 export INSTANCE=mastodon-http-local-36
@@ -43,10 +43,10 @@ if [[ -e ${INSTANCE} ]]; then
 fi
 mkdir -p ${INSTANCE}
 cd ${INSTANCE}
-sudo -E chown -hR ${USER} .
+chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
-echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
+echo "docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 
 
@@ -65,10 +65,10 @@ if [[ -e ${INSTANCE} ]]; then
 fi
 mkdir -p ${INSTANCE}
 cd ${INSTANCE}
-sudo -E chown -hR ${USER} .
+chown -hR ${USER} .
 
 cp ../template/uninstall.sh .
-echo "sudo docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
+echo "docker network rm ${INSTANCE}_external_network ${INSTANCE}_internal_network" >> ./uninstall.sh
 bash ${DIR}/create-mstdn.sh
 
 
@@ -81,5 +81,5 @@ export NGINX_IP3=172.38.0.32
 
 bash ${DIR}/create-nginx.sh
 
-# sudo -E chown -hR ${USER} .
+# chown -hR ${USER} .
 

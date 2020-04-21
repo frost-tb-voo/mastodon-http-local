@@ -19,16 +19,16 @@ if [[ -n ${PRIVATE_DOMAIN_OR_IP} ]];then
   sed -i -e 's|${NGINX_IP}|'${PRIVATE_DOMAIN_OR_IP}'|g' ./nginx.conf
 fi
 
-sudo docker pull nginx
-sudo docker stop nginx
-sudo docker rm nginx
-sudo docker create --name=nginx \
+docker pull nginx
+docker stop nginx
+docker rm nginx
+docker create --name=nginx \
  --restart=always \
  -p 80:80 \
  -v ${DIR}/../${INSTANCE}/nginx.conf:/etc/nginx/conf.d/mastodon.nginx.conf \
  nginx
-sudo docker network connect ${INSTANCE}_external_network \
+docker network connect ${INSTANCE}_external_network \
  --ip ${NGINX_IP} \
  nginx
-# sudo docker start nginx -i -a
-sudo docker start nginx
+# docker start nginx -i -a
+docker start nginx
