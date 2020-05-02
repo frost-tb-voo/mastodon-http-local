@@ -151,3 +151,10 @@ To understand the operations for mastodon in the script file [create-mstdn.sh](.
 
 https://docs.joinmastodon.org/administration/installation/
 
+## License
+
+- The files in this repository (including image modification programs) is licensed under MIT license.
+- The base image [tootsuite/mastodon](https://github.com/tootsuite/mastodon) is licensed under AGPL.
+  - You can confirm the modified locations in Dockerfile.
+  - You can confirm the image modified date as `Created` property in the `docker inspect` result.
+
