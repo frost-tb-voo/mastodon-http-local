@@ -6,30 +6,43 @@ M_HOME=/opt/mastodon
 APP=${M_HOME}/app
 CONFIG=${M_HOME}/config
 LIB=${M_HOME}/lib
-GFINGER=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.1
-OSTATUS=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/ostatus2-2.0.3
+# GFINGER=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/goldfinger-2.1.1
+# OSTATUS=${M_HOME}/vendor/bundle/ruby/2.6.0/gems/ostatus2-2.0.3
 
-mkdir -p temp
-# echo "find ${M_HOME} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
-# echo "find ${APP} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
-# echo "find ${CONFIG} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
-# echo "find ${LIB} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
-echo "find ${APP} -type f -print | xargs grep -rn 'https'" >> temp/find.sh
-echo "find ${CONFIG} -type f -print | xargs grep -rn 'https'" >> temp/find.sh
-echo "find ${LIB} -type f -print | xargs grep -rn 'https'" >> temp/find.sh
+# echo "ls ${M_HOME}/vendor/bundle/ruby/2.6.0/gems/" >> temp/find.sh
 
-echo "find ${GFINGER} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
-echo "find ${OSTATUS} -type f -name "*.rb" -print | xargs grep -rn 'https'" >> temp/find.sh
+mkdir -p tmp
+echo "rm -f /tmp/log" >> tmp/find.sh
+echo "echo 'GREP for https +*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+'" >> tmp/find.sh
+echo "find ${M_HOME} \
+      -type d -name 'vendor' -prune -or \
+      -type d -name 'spec' -prune -or \
+      -type f -name '*.rb' -print \
+      | xargs grep 'https' >> /tmp/log" >> tmp/find.sh
+echo "cat /tmp/log | \
+      grep -v 'http https' | \
+      grep -v 'https?' | \
+      grep -v \"'http://', 'https://'\" | \
+      grep -v -P 'https://[a-z]+.*'" >> tmp/find.sh
 
-echo "find ${APP} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >> temp/find.sh
-echo "find ${CONFIG} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >> temp/find.sh
-echo "find ${LIB} -type f -name "*.rb" -print | xargs grep -rn 'LOCAL_HTTPS'" >> temp/find.sh
+echo "rm -f /tmp/log" >> tmp/find.sh
+echo "echo 'GREP for LOCAL_HTTPS +*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+'" >> tmp/find.sh
+echo "find ${M_HOME} \
+      -type d -name 'vendor' -prune -or \
+      -type d -name 'spec' -prune -or \
+      -type f -name '*.rb' -print \
+      | xargs grep 'LOCAL_HTTPS' >> /tmp/log" >> tmp/find.sh
+echo "cat /tmp/log | \
+      grep -v 'http https' | \
+      grep -v 'https?' | \
+      grep -v \"'http://', 'https://'\" | \
+      grep -v -P 'https://[a-z]+.*'" >> tmp/find.sh
 
 docker pull tootsuite/mastodon
 docker run --rm -it \
- -v `pwd`/temp:/temp:rw \
+ -v `pwd`/tmp:/temp:rw \
  tootsuite/mastodon \
  bash /temp/find.sh
 
-rm -r temp
+rm -r tmp
 
